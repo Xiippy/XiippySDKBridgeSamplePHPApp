@@ -1,0 +1,50 @@
+{
+    "packages": [
+        {
+            "name": "xiippy/posecomsdk",
+            "version": "dev-main",
+            "version_normalized": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Xiippy/Xiippy.POSeComSDK.Light_PHP.git",
+                "reference": "ca0afb39dec5a97f5a2fc8620b077b0a847420ed"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Xiippy/Xiippy.POSeComSDK.Light_PHP/zipball/ca0afb39dec5a97f5a2fc8620b077b0a847420ed",
+                "reference": "ca0afb39dec5a97f5a2fc8620b077b0a847420ed",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "time": "2024-06-11T09:27:42+00:00",
+            "default-branch": true,
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Xiippy\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Xiippy.ai",
+                    "email": "contact@Xiippy.ai"
+                }
+            ],
+            "description": "Xiippy lightweight privacy-preserving online and in-person data-rich payments SDK for POS or e-commerce for PHP",
+            "support": {
+                "issues": "https://github.com/Xiippy/Xiippy.POSeComSDK.Light_PHP/issues",
+                "source": "https://github.com/Xiippy/Xiippy.POSeComSDK.Light_PHP/tree/main"
+            },
+            "install-path": "../xiippy/posecomsdk"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}

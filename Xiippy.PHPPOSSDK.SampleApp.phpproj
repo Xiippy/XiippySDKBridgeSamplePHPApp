@@ -1,0 +1,17 @@
+﻿<Project Sdk="Devsense.Php.Sdk">
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>954d41c5-1bb3-4db7-99bb-ff01b81457db</ProjectGuid>
+  </PropertyGroup>
+  <PropertyGroup>
+    <EnvName>IISExpress</EnvName>
+    <SaveServerSettingsInUserFile>false</SaveServerSettingsInUserFile>
+    <RuntimeVersion>8.0</RuntimeVersion>
+    <PHPDevHostName>localhost</PHPDevHostName>
+    <PHPDevAutoPort>true</PHPDevAutoPort>
+    <PHPDevRouting />
+    <IISProjectUrl>https://localhost:44300</IISProjectUrl>
+    <IISExpressSslEnabled>true</IISExpressSslEnabled>
+    <IISExpressSecurePort>44300</IISExpressSecurePort>
+    <IISExpressPort>23579</IISExpressPort>
+  </PropertyGroup>
+</Project>

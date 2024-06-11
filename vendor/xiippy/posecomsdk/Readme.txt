@@ -1,0 +1,2 @@
+Xiippy lightweight privacy-preserving online and in-person data-rich payments SDK for POS or e-commerce for PHP
+Copyright 2024 Xiippy.ai. All Rights Reserved. Australian patents awarded. PCT patents pending.

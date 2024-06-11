@@ -1,0 +1,1 @@
+This is the Xiippy sample app in PHP to show how our SDKs are used to process online payments.

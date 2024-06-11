@@ -1,0 +1,7 @@
+{
+    
+    "minimum-stability": "dev",
+    "require": {
+        "xiippy/posecomsdk": "dev-main"
+    }
+}
