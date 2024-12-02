@@ -9,8 +9,7 @@
 
 require_once __DIR__ . '/vendor/autoload.php';
 require 'IndexPHPInitializer.php';
-require_once __DIR__ . '/vendor/autoload.php';
-require_once __DIR__ . '/vendor/xiippy/posecomsdk/src/Models/PaymentProcessingRequest.php';
+
 
 use \Xiippy\POSeComSDK\Light\XiippySDKBridgeApiClient\Constants;
 use \Xiippy\POSeComSDK\Light\XiippySDKBridgeApiClient;

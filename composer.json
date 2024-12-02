@@ -1,7 +1,12 @@
 {
-    
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../Xiippy.POSeComSDK.Light"
+        }
+    ],
     "minimum-stability": "dev",
-    "require": {
-        "xiippy/posecomsdk": "dev-main"
-    }
+  "require": {
+    "xiippy/posecomsdk": "^1.0.7"
+  }
 }

@@ -15,25 +15,18 @@
 namespace Xiippy
 {
     require_once __DIR__ .'/vendor/autoload.php';
-    require_once __DIR__ .'/vendor/xiippy/posecomsdk/src/Models/PaymentProcessingRequest.php';
-
+    require 'constants.php';
+    
     use \Xiippy\POSeComSDK\Light\XiippySDKBridgeApiClient\Constants;
     use \Xiippy\POSeComSDK\Light\XiippySDKBridgeApiClient;
+    use \Xiippy\POSeComSDK\Light\POSeComSDK;
     use \Xiippy\POSeComSDK\Light\Models\PaymentProcessingRequest;
     use \Xiippy\POSeComSDK\Light\Models\PaymentRecordCustomer;
     use \Xiippy\POSeComSDK\Light\Models\IssuerStatementRecord;
     use \Xiippy\POSeComSDK\Light\Models\PaymentRecordCustomerAddress;
     use \Xiippy\POSeComSDK\Light\Models\StatementItem;
 
-// you need to generate these values after logging into your locally-deployed instance of the Xiippy SDKBridge, or, alternatively, the cloud-hosted one at https://sdkbridge.xiippy.ai.
-// secrets have to be treated like secrets
-// how to persist them and load them is all up to the developers
-
-    define("Config_BaseAddress" , "The base URL of the SDK Bridge instance");  // the base address when using the cloud hosted SDK bridge is https://sdkbridge.xiippy.ai
-    define("MerchantGroupID" , "Your Merchant Group ID, as reported by the SDK Bridge instance");
-    define("Config_ApiKey" , "API Secret Key, as reported by the SDK Bridge instance");
-    define("MerchantID" , "Your Merchant ID, as reported by the SDK Bridge instance");
-
+ 
 
     class IndexPHPInitializer
     {
@@ -109,7 +102,7 @@ namespace Xiippy
             $req->IssuerStatementRecord->TotalTaxAmount = 4;
 
 
-            $XiippySDKBridgeApiClient= new XiippySDKBridgeApiClient(true, Config_ApiKey, Config_BaseAddress.InitiateXiippyPaymentPath, MerchantID, MerchantGroupID);
+            $XiippySDKBridgeApiClient= new XiippySDKBridgeApiClient(true, Config_ApiKey, Config_BaseAddress, MerchantID, MerchantGroupID);
             $keys = $XiippySDKBridgeApiClient->InitiateXiippyPayment($req);
 
             $result = array(Constants::$QueryStringParam_spw=>"true");
@@ -118,20 +111,20 @@ namespace Xiippy
             $result+= array(Constants::$QueryStringParam_MerchantID=> MerchantID);
             $result+= array(Constants::$QueryStringParam_MerchantGroupID=> MerchantGroupID);
 
-            if(isset($keys->clientAuthenticator)){
-                $result+= array(Constants::$QueryStringParam_ca=> $keys->clientAuthenticator);
+            if(isset($keys->ClientAuthenticator)){
+                $result+= array(Constants::$QueryStringParam_ca=> $keys->ClientAuthenticator);
             }
 
-            if(isset($keys->randomStatementID)){
-                $result+= array(Constants::$QueryStringParam_rsid=>$keys->randomStatementID);
+            if(isset($keys->RandomStatementID)){
+                $result+= array(Constants::$QueryStringParam_rsid=>$keys->RandomStatementID);
             }
 
-            if(isset($keys->statementTimeStamp)){
-                $result+= array(Constants::$QueryStringParam_sts=> $keys->statementTimeStamp);
+            if(isset($keys->StatementTimeStamp)){
+                $result+= array(Constants::$QueryStringParam_sts=> $keys->StatementTimeStamp);
             }
 
-            if(isset($keys->clientSecret)){
-                $result+= array(Constants::$QueryStringParam_cs=> $keys->clientSecret);
+            if(isset($keys->ClientSecret)){
+                $result+= array(Constants::$QueryStringParam_cs=> $keys->ClientSecret);
             }
            
 
