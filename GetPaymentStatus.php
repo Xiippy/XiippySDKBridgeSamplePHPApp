@@ -5,7 +5,7 @@
 require_once __DIR__ . '/vendor/autoload.php';
 require 'constants.php';
 use \Xiippy\POSeComSDK\Light\XiippySDKBridgeApiClient;
-use \Xiippy\POSeComSDK\Light\Models\RefundCardPaymentRequest;
+use \Xiippy\POSeComSDK\Light\Models\GetPaymentStatusRequest;
 
 
 
@@ -26,11 +26,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($statementID) || empty($statementTimeStamp)) {
         $errorMessage = "Statement ID and Statement Timestamp are required.";
     } else {
-        // Simulate processing the refund
+        // Simulate processing the API Call
         try {
-            // Process the refund logic here (e.g., call a backend service)
-            $response = RefundCardPayment($statementID, $statementTimeStamp, $amount);
-            $successMessage = "Refund was processed successfully. Response:\n" . json_encode($response, JSON_PRETTY_PRINT);
+            // Process the API response here (e.g., call a backend service)
+            $response = GetPaymentStatus($statementID, $statementTimeStamp, $amount);
+            $successMessage = "Request was processed successfully. Response:\n" . json_encode($response, JSON_PRETTY_PRINT);
 
         } catch (Exception $e) {
             $errorMessage = "An error occurred: " . $e->getMessage();
@@ -38,24 +38,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-function RefundCardPayment($statementID, $statementTimeStamp, $amount)
+function GetPaymentStatus($statementID, $statementTimeStamp, $amount)
 {
 
-    $req = new RefundCardPaymentRequest();
+    $req = new GetPaymentStatusRequest();
 
 
     $req->MerchantGroupID = MerchantGroupID;
     $req->MerchantID = MerchantID;
     $req->RandomStatementID = $statementID;
-    $req->StatementTimestamp = $statementTimeStamp;
-    if (!is_null($amount) && !empty(trim($amount)))
-        $req->AmountInDollars = $amount;
+    $req->Timestamp = $statementTimeStamp;
 
 
     // instantiate the SDK objects and feed them with the right parameters
     $client = new XiippySDKBridgeApiClient(true, Config_ApiKey, Config_BaseAddress, MerchantID, MerchantGroupID);
     // initiate the payment
-    $response = $client->RefundCardPayment($req);
+    $response = $client->GetPaymentStatus($req);
     return $response;
 }
 
@@ -69,7 +67,7 @@ function RefundCardPayment($statementID, $statementTimeStamp, $amount)
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>XiippySDKBridgeSamplePHPApp:: Refund</title>
+    <title>XiippySDKBridgeSamplePHPApp:: Get Payment Status</title>
     <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/css/site.css" />
 </head>
@@ -102,7 +100,7 @@ function RefundCardPayment($statementID, $statementTimeStamp, $amount)
         <main role="main" class="pb-3">
 
 
-            <h2>Refund Form</h2>
+            <h2>Get Payment Status Form</h2>
 
             <form method="post" class="needs-validation">
                 <div class="mb-3">
@@ -121,11 +119,7 @@ function RefundCardPayment($statementID, $statementTimeStamp, $amount)
                         <span class="text-danger">Statement TimeStamp is required.</span>
                     <?php endif; ?>
                 </div>
-                <div class="mb-3">
-                    <label for="Amount" class="form-label">Amount (leave blank to refund full amount)</label>
-                    <input type="number" id="Amount" name="Amount" step="0.01" class="form-control"
-                        value="<?= htmlspecialchars($amount) ?>">
-                </div>
+                
 
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>

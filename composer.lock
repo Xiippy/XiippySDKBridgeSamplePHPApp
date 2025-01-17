@@ -4,33 +4,28 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "587cb1e7ae5f53a21163dd7f870ec025",
+    "content-hash": "02b0d5a2ad3e2cddd51a8c9f9da9ade2",
     "packages": [
         {
             "name": "xiippy/posecomsdk",
-            "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Xiippy/Xiippy.POSeComSDK.Light_PHP.git",
-                "reference": "ca0afb39dec5a97f5a2fc8620b077b0a847420ed"
-            },
+            "version": "1.0.8",
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Xiippy/Xiippy.POSeComSDK.Light_PHP/zipball/ca0afb39dec5a97f5a2fc8620b077b0a847420ed",
-                "reference": "ca0afb39dec5a97f5a2fc8620b077b0a847420ed",
-                "shasum": ""
+                "type": "path",
+                "url": "../Xiippy.POSeComSDK.Light",
+                "reference": "d4819ac27914baf53f7311ac7f2f72e0a443ec99"
             },
             "require": {
                 "php": ">=5.3.0"
             },
-            "default-branch": true,
+            "require-dev": {
+                "phpunit/phpunit": "^10.0"
+            },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Xiippy\\": "src/"
+                    "Xiippy\\POSeComSDK\\Light\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -41,19 +36,15 @@
                 }
             ],
             "description": "Xiippy lightweight privacy-preserving online and in-person data-rich payments SDK for POS or e-commerce for PHP",
-            "support": {
-                "issues": "https://github.com/Xiippy/Xiippy.POSeComSDK.Light_PHP/issues",
-                "source": "https://github.com/Xiippy/Xiippy.POSeComSDK.Light_PHP/tree/main"
-            },
-            "time": "2024-06-11T09:27:42+00:00"
+            "transport-options": {
+                "relative": true
+            }
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "xiippy/posecomsdk": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

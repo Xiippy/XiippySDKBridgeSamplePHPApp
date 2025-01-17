@@ -6,7 +6,7 @@
         }
     ],
     "minimum-stability": "dev",
-  "require": {
-    "xiippy/posecomsdk": "^1.0.7"
-  }
+    "require": {
+        "xiippy/posecomsdk": "^1.0"
+    }
 }

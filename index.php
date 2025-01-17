@@ -129,7 +129,7 @@ try {
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2024 - XiippySDKBridgeSamplePhpApp - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            &copy; 2025 - XiippySDKBridgeSamplePhpApp - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
     </footer>
 
